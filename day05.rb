@@ -18,4 +18,17 @@ santa_strings.each do |santa_string|
   num_nice += 1 if (three_vowels && yes_repeated && no_forbidden)
 end
 
-print num_nice
+puts num_nice
+
+#PART II
+num_nice = 0
+
+sandwiched = /(.)[^\1](?:\1)/
+doubled_up = /(.{2}).*(?:\1)/
+santa_strings.each do |santa_string|
+  is_sandwiched = santa_string.match(sandwiched) 
+	is_doubled_up = santa_string.match(doubled_up)
+  num_nice += 1 if (is_sandwiched && is_doubled_up)
+end
+
+puts num_nice
